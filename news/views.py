@@ -6,7 +6,6 @@ import uuid
 # Create your views here.
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
 from .externalApis import getApiData
 from .dbManager import getNewsFromDb
 from .favorite import getFavorites, toggleFavorite
