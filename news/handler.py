@@ -57,8 +57,9 @@ def getResponse(request, query):
     if queryExists(queryRequest.query):
         news.extend(getNewsFromDb(qId[0]))
     else:
-        news.extend(getApiData(query, queryRequest.id))
         queryRequest.save()
+        news.extend(getApiData(query, queryRequest.id))
+
     random.shuffle(news)
     serializer = NewsSerializer(news, many=True)
     response['status'] = 200
