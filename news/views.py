@@ -31,4 +31,5 @@ class NewsView(APIView):
         favs.clear()
         response = {}
         response.update(postResponse(request))
-        return Response(response)
+        res = Response(response, response['status'])
+        return res
