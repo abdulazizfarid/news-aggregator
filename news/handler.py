@@ -45,6 +45,7 @@ def getResponse(request, query):
         favs.clear()
         user = request.GET.get('user')
         favs.extend(getFavorites(user))
+        print(favs)
         serializer = NewsSerializer(favs, many=True)
         response['status'] = 200
         response['message'] = 'success'

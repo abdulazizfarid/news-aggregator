@@ -15,6 +15,7 @@ def toggleFavorite(newsId, user):
                 temp.favorite = False
             elif not temp.favorite:
                 temp.favorite = True
+            temp.time = datetime.datetime.utcnow()
             temp.newsId = temp.newsId[0]
             temp.user = temp.user[0]
             temp.save()
