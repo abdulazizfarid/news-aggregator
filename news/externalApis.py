@@ -1,6 +1,6 @@
 import requests
 
-from projectFiles.settings import NEWSAPI_KEY, REDDIT_CLIENT_ID, REDDIT_SECRET_KEY
+from djangoProject.settings import NEWSAPI_KEY, REDDIT_CLIENT_ID, REDDIT_SECRET_KEY
 from news.dbManager import saveNewsToDb
 
 news = []
