@@ -23,7 +23,8 @@ class NewsView(APIView):
         response = {}
         query = self.request.query_params.get('query')
         response.update(getResponse(request, query))
-        return Response(response)
+        res = Response(response, response['status'])
+        return res
 
     def post(self, request):
         news.clear()

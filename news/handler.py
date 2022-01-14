@@ -40,7 +40,7 @@ def getResponse(request, query):
     if queryRequest.query.__contains__('favorite') and queryRequest.query.__contains__('user'):
         if queryRequest.query.__contains__('id'):
             response['status'] = 405
-            response['message'] = 'Please ensure you\'re sending a POST request to toggle favorite'
+            response['data'] = 'Please ensure you\'re sending a POST request to toggle favorite'
             return response
         favs.clear()
         user = request.GET.get('user')
@@ -64,7 +64,7 @@ def getResponse(request, query):
     serializer = NewsSerializer(news, many=True)
     response['status'] = 200
     response['message'] = 'success'
-    response['news'] = serializer.data
+    response['data'] = serializer.data
     return response
 
 

@@ -16,20 +16,20 @@ class FavoriteTestCase(unittest.TestCase):
         response = client.get(f'http://127.0.0.1:8000/api/news/favorite?username={username}')
         self.assertEqual(response.status_code, 200)
 
-    def test_invalidParams(self):
+    def test_invalidMethod(self):
         client = Client()
         username = "AbdulAziz"
         id = "81f94422-fa34-45b4-ab95-35edd384507e"
         response = client.get(f'http://127.0.0.1:8000/api/news/favorite?username={username}&id={id}')
         print(response.status_code)
-        self.assertFalse(response.status_code, 200)
+        self.assertEqual(response.status_code, 405)
 
     def test_missingParams(self):
         client = Client()
         username = "AbdulAziz"
         response = client.get(f'http://127.0.0.1:8000/api/news/favorite?username={username}')
         print(response.status_code)
-        self.assertFalse(response.status_code, 200)
+        self.assertEqual(response.status_code, 404)
 
 
 if __name__ == '__main__':
